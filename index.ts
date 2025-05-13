@@ -126,97 +126,120 @@
 // }
 
 
-class User{
-    public firstName: string;
-    public lastName: string;
-    private age: number;
+// class User{
+//     public firstName: string;
+//     public lastName: string;
+//     private age: number;
 
-      constructor(){
-        this.age=0;
-        this.firstName='Null';
-        this.lastName='Null'
-    }
+//       constructor(){
+//         this.age=0;
+//         this.firstName='Null';
+//         this.lastName='Null'
+//     }
 
-     registerUsers(firstName:string, lastName:string, age: number): void {
-        this.firstName=firstName,
-        this.lastName=lastName,
-        this.age=age
-    }
+//      registerUsers(firstName:string, lastName:string, age: number): void {
+//         this.firstName=firstName,
+//         this.lastName=lastName,
+//         this.age=age
+//     }
 
-     returnFirstName(): string{
-        return this.firstName
-    }
-     returnLastName(): string{
-        return this.lastName
-    }
-     returnAge(): number{
-        return this.age
-    }
+//      returnFirstName(): string{
+//         return this.firstName
+//     }
+//      returnLastName(): string{
+//         return this.lastName
+//     }
+//      returnAge(): number{
+//         return this.age
+//     }
+// }
+
+// let user1 : User =new User();
+// user1.registerUsers('Kamikazi', 'Christella',45)
+// user1.returnFirstName;
+// user1.returnLastName;
+// user1.returnAge;
+
+// // Inheritance
+
+// class Book{
+//     public manufacturer: string;
+//     public title: string;
+//     constructor (man: string, tit: string) {
+//         this.manufacturer=man;
+//         this.title=tit
+//     }
+// }
+
+// class EducationBook extends Book{
+//     constructor(){
+//         super("UR","Math Book");
+
+//     }
+// }
+// const educationBook = new EducationBook();
+// educationBook.title;
+// educationBook.manufacturer;
+
+// //exercise on inheritance
+
+// class House{
+//    // parent class House( size,floors,district)
+//     public district: string;
+//     public size: number;
+//       public floors: number;
+//     constructor (district: string, size: number, floor: number) {
+//         this.district=district;
+//         this.size=size;
+//         this.floors=floor;
+//     }
+// }
+
+// class NyarugengeHouse extends House{
+//     constructor(){
+//         super("Nyarugenge",20, 2);
+
+//     }
+// }
+
+// class KicukiroHouse extends House{
+//     constructor(){
+//         super("Kicukiro", 10, 5)
+//     }
+// }
+
+// const nyarugengeHouse= new NyarugengeHouse
+// nyarugengeHouse.district
+// nyarugengeHouse.floors
+// nyarugengeHouse.size
+
+
+// const kicukiroHouse=new KicukiroHouse
+// kicukiroHouse.district
+// kicukiroHouse.floors
+// kicukiroHouse.size
+
+
+interface Person{
+
+  names: string;
+  age: number;
+  address: string;
 }
 
-let user1 : User =new User();
-user1.registerUsers('Kamikazi', 'Christella',45)
-user1.returnFirstName;
-user1.returnLastName;
-user1.returnAge;
-
-// Inheritance
-
-class Book{
-    public manufacturer: string;
-    public title: string;
-    constructor (man: string, tit: string) {
-        this.manufacturer=man;
-        this.title=tit
-    }
+const personOne: Person ={
+   names: 'Mugisha',
+   age: 20,
+   address: 'Rwanda'
+ 
 }
 
-class EducationBook extends Book{
-    constructor(){
-        super("UR","Math Book");
+const {names, age}=personOne;
+console.log(names);
+console.log(age);
 
-    }
-}
-const educationBook = new EducationBook();
-educationBook.title;
-educationBook.manufacturer;
+const countries: string[] = ['Rwanda','Ghana','Burundi'];
+const [countryOne, countryTwo] =countries;
 
-//exercise on inheritance
-
-class House{
-   // parent class House( size,floors,district)
-    public district: string;
-    public size: number;
-      public floors: number;
-    constructor (district: string, size: number, floor: number) {
-        this.district=district;
-        this.size=size;
-        this.floors=floor;
-    }
-}
-
-class NyarugengeHouse extends House{
-    constructor(){
-        super("Nyarugenge",20, 2);
-
-    }
-}
-
-class KicukiroHouse extends House{
-    constructor(){
-        super("Kicukiro", 10, 5)
-    }
-}
-
-const nyarugengeHouse= new NyarugengeHouse
-nyarugengeHouse.district
-nyarugengeHouse.floors
-nyarugengeHouse.size
-
-
-const kicukiroHouse=new KicukiroHouse
-kicukiroHouse.district
-kicukiroHouse.floors
-kicukiroHouse.size
-
-
+console.log(countryOne);
+console.log(countryTwo);
