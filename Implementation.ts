@@ -25,14 +25,37 @@ interface addnumbers{
 class addition implements addnumbers{
     numberOne:number=10;
     numberTwo: number =20;
-     sum:number=0;
+    sum:number=0;
 
     setNumbers(numberOne: number, numberTwo: number): void {
-        let sum=numberOne+numberTwo;
-        console.log(sum)
+        this.numberOne=numberOne;
+        this.numberTwo=numberTwo;
+        this.sum=this.numberOne+this.numberTwo;
+        console.log(this.sum)
     }
     getNumbers(): number {
         return this.sum;
     }
 }
 
+interface subtractNumbers{
+    setNumbers(numberOne:number, numberTwo: number):void
+    getNumbers(): number;
+}
+class subtraction implements subtractNumbers{
+      numberOne:number=10;
+    numberTwo: number =20;
+     subrac:number=0;
+
+    setNumbers(numberOne: number, numberTwo: number): void {
+        this.numberOne=numberOne
+        this.numberTwo=numberTwo
+        this.subrac=this.numberOne-this.numberTwo;
+        console.log(this.subrac)
+    }
+    getNumbers(): number {
+        return this.subrac;
+    }
+
+
+}
