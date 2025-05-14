@@ -1,11 +1,11 @@
-interface StudentOperations {
+interface StudentOperations2 {
     addStudent(name: string, rollNumber: number, grade: number): void;
     displayStudents(): string;
     calculateAverageGrade(): number;
     getMenu(): string;
 }
 
-class StudentManager implements StudentOperations {
+class StudentManager implements StudentOperations2 {
 
     name: string[] = [];
     rollNumber: number[] = [];
@@ -57,5 +57,5 @@ studentManager.addStudent('Iradukunda', 1, 90);
 studentManager.addStudent('Aline', 2, 85);
 studentManager.addStudent('Placide', 3, 95);
 console.log(studentManager.displayStudents())
-const averageGrade = studentManager.calculateAverageGrade();
+//const averageGrade = studentManager.calculateAverageGrade();
 //console.log(`Average Grade: ${averageGrade}`);
