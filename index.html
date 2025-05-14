@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management System</title>
+</head>
+<body>
+  <h1>Student Management System</h1>
+  <div>
+    <label>Name: <input id="nameInput" type="text"></label><br>
+    <label>Roll Number: <input id="rollInput" type="number"></label><br>
+    <label>Grade: <input id="gradeInput" type="number" step="0.01"></label><br>
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="displayStudents()">Display Students</button>
+    <button onclick="calculateAverage()">Calculate Average</button>
+  </div>
+  <pre id="output"></pre>
+
+  <script src="studentmis.js"></script>
+</body>
+</html>
