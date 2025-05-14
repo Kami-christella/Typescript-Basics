@@ -6,17 +6,25 @@ interface StudentOperations2 {
 }
 
 class StudentManager implements StudentOperations2 {
+      //public students: StudentOperations2[] = [];
 
     name: string[] = [];
     rollNumber: number[] = [];
     grade: number[] = [];
 
     addStudent(name: string, rollNumber: number, grade: number): void {
+         if(this.isStudentExist(rollNumber)){
+            console.log(`Student with roll number ${rollNumber} already exists.`);
+            return;
+        }
         this.name.push(name);
         this.rollNumber.push(rollNumber);
         this.grade.push(grade);
        // console.log(`Student added: ${name}, Roll Number: ${rollNumber}, Grade: ${grade}`);
     }
+    //  isStudentExist(rollNumber: number):boolean{
+    //      return this.students.find((st:StudentOperations2): boolean =>st.rollNumber === rollNumber)? true: false
+    // }
 
     displayStudents(): string {
         if (this.name.length === 0) return "No students available.\n";
