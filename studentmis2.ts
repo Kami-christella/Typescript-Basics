@@ -13,10 +13,10 @@ class StudentManager implements StudentOperations2 {
     grade: number[] = [];
 
     addStudent(name: string, rollNumber: number, grade: number): void {
-         if(this.isStudentExist(rollNumber)){
-            console.log(`Student with roll number ${rollNumber} already exists.`);
-            return;
-        }
+        //  if(this.isStudentExist(rollNumber)){
+        //     console.log(`Student with roll number ${rollNumber} already exists.`);
+        //     return;
+        // }
         this.name.push(name);
         this.rollNumber.push(rollNumber);
         this.grade.push(grade);
