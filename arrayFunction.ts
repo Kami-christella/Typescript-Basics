@@ -59,7 +59,7 @@
 // }
 
 const country: string = 'Rwanda';
-switch(country){
+switch(country){ 
     case 'Rwanda':{
       console.log('This is Rwanda')
       break;
