@@ -2,11 +2,18 @@ interface House{
 ID: number,
 District: string,
 Rooms: number,
-HouseCategory: string
+HouseCategory: HouseCategory
 }
+enum HouseCategory
+{
+    RESIDENTIAL = 'R',
+    HOTEL = 'H'
+}
+//  House category(RSIDENTIALS,HOTEL)
 
 interface IHouse{
     addHouse: (house: House) => void,
+    removeHouseByDistrict: (District: string) => void,
     removeHouse: (id: number) => void,
     displayHouses: () => void
 }
@@ -34,7 +41,19 @@ class HouseManagement implements IHouse{
         }
         else if(houseIndex !== -1){
             this.houses.splice(houseIndex, 1);
-           // console.log(`House with ID ${id} removed.`);
+            console.log(`House with ID ${id} removed.`);
+        }
+    }
+
+     removeHouseByDistrict(District: string): void{
+        const houseIndex = this.houses.findIndex((h: House)=>h.District === District);
+        if(houseIndex === -1){
+            console.log(`House with District ${District} not found.`);
+            return;
+        }
+        else if(houseIndex !== -1){
+            this.houses.splice(houseIndex, 1);
+            console.log(`House in ${District} removed.`);
         }
     }
     editHouse(id: number, house: House): void{
@@ -55,10 +74,12 @@ class HouseManagement implements IHouse{
     }
 }
 const houseManagementObj = new HouseManagement();
-houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3, HouseCategory: 'Residential'});
-houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5, HouseCategory: 'Hotel'});
+houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3,  HouseCategory: HouseCategory.RESIDENTIAL});
+houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
 houseManagementObj.displayHouses();
-houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4, HouseCategory: 'Residential'});
+houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
+houseManagementObj.removeHouse(2);
+houseManagementObj.removeHouseByDistrict('Downtown');
 
 
 
