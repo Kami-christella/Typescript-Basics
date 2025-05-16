@@ -15,6 +15,7 @@ interface IHouse{
     addHouse: (house: House) => void,
     removeHouseByDistrict: (District: string) => void,
     removeHouse: (id: number) => void,
+    editHouse:(id: number,house: House) => void,
     displayHouses: () => void
 }
 class HouseManagement implements IHouse{
@@ -64,7 +65,7 @@ class HouseManagement implements IHouse{
         }
         else if(houseIndex !== -1){
             this.houses[houseIndex] = house;
-            console.log(`House with ID ${id} updated.`);
+            console.log(`House with ID ${id} updated. New deatils: ID: ${house.ID}, District: ${house.District}, Rooms: ${house.Rooms}, Category: ${house.HouseCategory}`);
         }
     }
     displayHouses(): void{
@@ -78,8 +79,8 @@ houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3,  HouseCatego
 houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
 houseManagementObj.displayHouses();
 houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
-houseManagementObj.removeHouse(2);
-houseManagementObj.removeHouseByDistrict('Downtown');
+// houseManagementObj.removeHouse(2);
+// houseManagementObj.removeHouseByDistrict('Downtown');
 
 
 
