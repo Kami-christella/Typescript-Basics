@@ -94,7 +94,7 @@ const houseManagementObj = new HouseManagement();
 houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3,  HouseCategory: HouseCategory.RESIDENTIAL});
 houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
 houseManagementObj.displayHouses();
-houseManagementObj.editHouse(2, 'Downtown');
+houseManagementObj.editHouseByDistrict(2, 'Downtown');
 //houseManagementObj.editHouse(id:2,  District: 'Downtown');
 //houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
 // houseManagementObj.removeHouse(2);
