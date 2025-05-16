@@ -51,7 +51,12 @@ class StockManagement implements IProduct{
     createProduct(product: Product){
         const productExist = this.products.find((prod: Product)=>prod.id === product.id);
         if(!productExist){
+            product.id = this.generateId();
             this.products.push(product);
         }
     }
+    generateId(): number{
+        return this.products.length + 1;
+        }
+
 }

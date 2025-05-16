@@ -30,10 +30,15 @@ class HouseManagement implements IHouse{
             return;
         }
         else if(!houseExist){
+              house.ID = this.generateId();
             this.houses.push(house);
            console.log(`House added: ID: ${house.ID}, District: ${house.District}, Rooms: ${house.Rooms}, Category: ${house.HouseCategory}`);
         }
     }
+
+     generateId(): number{
+        return this.houses.length + 1;
+        }
 
     removeHouse(id: number): void{
         const houseIndex = this.houses.findIndex((h: House)=>h.ID === id);
@@ -91,10 +96,12 @@ class HouseManagement implements IHouse{
     }
 }
 const houseManagementObj = new HouseManagement();
-houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3,  HouseCategory: HouseCategory.RESIDENTIAL});
-houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
+houseManagementObj.addHouse({ID: 0, District: 'Downtown', Rooms: 3,  HouseCategory: HouseCategory.RESIDENTIAL});
+houseManagementObj.addHouse({ID: 0, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
+houseManagementObj.addHouse({ID: 0, District: 'third', Rooms: 7,  HouseCategory: HouseCategory.HOTEL});
 houseManagementObj.displayHouses();
 houseManagementObj.editHouseByDistrict(2, 'Downtown');
+
 //houseManagementObj.editHouse(id:2,  District: 'Downtown');
 //houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
 // houseManagementObj.removeHouse(2);
