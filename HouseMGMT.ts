@@ -15,7 +15,8 @@ interface IHouse{
     addHouse: (house: House) => void,
     removeHouseByDistrict: (District: string) => void,
     removeHouse: (id: number) => void,
-    editHouse:(id: number,house: House) => void,
+    editHouseByDistrict:(id: number,District: string) => void,
+     editHouse:(id: number,house: House) => void,
     displayHouses: () => void
 }
 class HouseManagement implements IHouse{
@@ -64,8 +65,23 @@ class HouseManagement implements IHouse{
             return;
         }
         else if(houseIndex !== -1){
-            this.houses[houseIndex] = house;
-            console.log(`House with ID ${id} updated. New deatils: ID: ${house.ID}, District: ${house.District}, Rooms: ${house.Rooms}, Category: ${house.HouseCategory}`);
+            //this.houses[houseIndex] = house;
+             this.houses[houseIndex].District = house.District;
+              console.log(`House with ID ${id}  with updated. New  District: ${house.District}`);
+            //console.log(`House with ID ${id}  with updated. New deatils: ID: ${house.ID}, District: ${house.District}, Rooms: ${house.Rooms}, Category: ${house.HouseCategory}`);
+        }
+    }
+     editHouseByDistrict(id: number, District: string): void{
+        const houseIndex = this.houses.findIndex((h: House)=>h.ID === id);
+        if(houseIndex === -1){
+            console.log(`House with ID ${id} not found.`);
+            return;
+        }
+        else if(houseIndex !== -1){
+            //this.houses[houseIndex] = house;
+             this.houses[houseIndex].District = District;
+              console.log(`House with ID ${id} updated with New  District: ${District}`);
+            //console.log(`House with ID ${id}  with updated. New deatils: ID: ${house.ID}, District: ${house.District}, Rooms: ${house.Rooms}, Category: ${house.HouseCategory}`);
         }
     }
     displayHouses(): void{
@@ -78,11 +94,10 @@ const houseManagementObj = new HouseManagement();
 houseManagementObj.addHouse({ID: 1, District: 'Downtown', Rooms: 3,  HouseCategory: HouseCategory.RESIDENTIAL});
 houseManagementObj.addHouse({ID: 2, District: 'CHIC', Rooms: 5,  HouseCategory: HouseCategory.HOTEL});
 houseManagementObj.displayHouses();
-houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
+houseManagementObj.editHouse(2, 'Downtown');
+//houseManagementObj.editHouse(id:2,  District: 'Downtown');
+//houseManagementObj.editHouse(2,{ID: 2, District: 'Downtown', Rooms: 4,  HouseCategory: HouseCategory.RESIDENTIAL});
 // houseManagementObj.removeHouse(2);
 // houseManagementObj.removeHouseByDistrict('Downtown');
 
 
-
-// ID, District, Number of rooms and House category(RSIDENTIALS,HOTEL) 
-// , add function in class to add house , remove house and display recorded houses.
